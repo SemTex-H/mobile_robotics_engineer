@@ -29,8 +29,12 @@ ament_target_dependencies(lidar_sub rclcpp nav_msgs sensor_msgs visualization_ms
 add_executable(marker_to_map src/occupancy_grid_to_map.cpp)
 ament_target_dependencies(marker_to_map rclcpp nav_msgs visualization_msgs)
 
+add_executable(lidar_to_grid src/lidar_to_grid.cpp)
+ament_target_dependencies(lidar_to_grid rclcpp nav_msgs sensor_msgs)
+
+
 install(TARGETS oc_grid_pub
-  lidar_sub og_sub marker_to_map
+  lidar_sub og_sub marker_to_map lidar_to_grid
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch worlds map models config

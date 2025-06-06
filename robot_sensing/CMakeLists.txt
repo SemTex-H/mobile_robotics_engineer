@@ -12,7 +12,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(geometry_msgs REQUIRED)
-
+find_package(visualization_msgs REQUIRED)
 
 
 add_executable(mazeSolving src/maze_solving_with_lidar.cpp)
@@ -22,8 +22,16 @@ add_executable(lineFollowing src/line_following_with_camera.cpp)
 ament_target_dependencies(lineFollowing rclcpp sensor_msgs cv_bridge geometry_msgs)
 target_link_libraries(lineFollowing ${OpenCV_LIBS})
 
+add_executable(lidar_splitter src/lidar_splitter.cpp)
+ament_target_dependencies(lidar_splitter
+  rclcpp
+  sensor_msgs
+  visualization_msgs
+)
 
-install(TARGETS mazeSolving lineFollowing
+
+
+install(TARGETS mazeSolving lineFollowing lidar_splitter
   DESTINATION lib/${PROJECT_NAME})
 
 

@@ -1,33 +1,28 @@
 # Mobile Robotics Software Engineer
 Complete software based curriculum is designed to take you through the foundational and advanced concepts of robotics software engineering using ROS2, C++, and other critical technologies in the field. Below, you'll find a structured path to guide your learning journey. Each module contains a brief overview of its learning outcomes to help you understand what skills and knowledge you'll gain upon completion.
 
-![main](https://github.com/Robotisim/robotics_software_engineer/blob/main/assets/rse-cover.png)
-----
-### Running these Projects
-To run modules, you can check out our detailed [Wiki](https://github.com/Robotisim/robotics_software_engineer/wiki)
+<p align="center">
+	<img src="assets/slambot.jpg" alt="main" width="600" style="border-radius: 16px;"/>
+</p>
+
 ### Information
 - Go through Curriculum -> [here](https://robotisim.com/learning-paths/)
 - **Source Code will be open source**
     - If you are interested in learning with
-        - Detailed explanation
-        - Assignments - Quizes
-        - Bi-Weekly Live Meetings
-
-    Check out our Membership -> [Robotics Software Engineer Learning Path](https://robotisim.com/products/robotisim-membership/)
+        - Detailed explanation from simulation to real hardware
+        - Assignments
 
 ### Contact Us
 For any inquiries, feel free to reach out at `info@robotisim.com`
 
 ### Packages
-- **Packages** (in recommended learning order)
-    - `cpp_fundamentals` - C++ Programming Fundamentals
-    - `drive_mobile_robot` - Mobile Robot Navigation Implementation
-    - `custom_robots` - Building and Understanding Robot Models
-    - `robot_sensing` - Robot Perception and Sensors
-    - `control_systems` - Robot Control Algorithms
-    - `sensor_fusion` - Multi-sensor Data Integration
-    - `mapping` - Environment Mapping and SLAM
-    - `path_planning` - Navigation and Path Planning
+- **Packages** (in recommended learning order both in simulation and real hardware )
+	- Creation of a mobile Robot
+	- Robot decision making with sensors
+	- Control Systems for goal driving
+	- SLAM with 2d Lidar
+	- Path planning
+	- Navigation
 
 
 ## License
