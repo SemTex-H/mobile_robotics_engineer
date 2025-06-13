@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250613-0400-Experimental"
+	Name="Aster"
+	Generator="ctest-3.22.1"
+	CompilerName="/usr/bin/clang++-14"
+	CompilerVersion="14.0.0"
+	OSName="Linux"
+	Hostname="Aster"
+	OSRelease="6.8.0-60-generic"
+	OSVersion="#63~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Apr 22 19:00:15 UTC 2"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="142"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="11869"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="800.018"
+	>
+	<Testing>
+		<StartDateTime>Jun 13 12:00 +08</StartDateTime>
+		<StartTestTime>1749787206</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jun 13 12:00 +08</EndDateTime>
+		<EndTestTime>1749787206</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot name="ackerman_drive_robot">
+
+    <link name="base">
+    </link>
+    <link name="dock_link"/>
+    <link name="stick1_link"/>
+    <link name="stick2_link"/>
+    <link name="stick3_link"/>
+
+</robot>

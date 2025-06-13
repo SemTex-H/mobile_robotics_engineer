@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<robot name="ackerman_drive_robot">
+
+
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.75 0.4 0.1"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.2 0.2 0.2 1.0"/>
+            </material>
+        </visual>
+    </link>
+    
+
+    <!-- ROBOT ARM -->
+    <!-- <joint name="dock_joint" type="continuous">
+        <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="dock_link"/>
+        <axis xyz="0.0 0.0 1"/>
+    </joint>
+    <link name="dock_link">
+        <inertial>
+            <mass value="1.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.1875" length="0.05"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.1875" length="0.05"/>
+            </geometry>
+        </collision>
+    </link>
+
+
+    <joint name="stick1_joint" type="revolute">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="dock_link"/>
+        <child link="stick1_link"/>
+        <axis xyz="0.0 1 0.0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="100"/>
+    </joint>
+    <link name="stick1_link">
+        <inertial>
+            <mass value="1.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.2"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.4"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.4"/>
+            </geometry>
+            <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+
+    <joint name="stick2_joint" type="revolute">
+        <origin xyz="0.0 0.1 0.3" rpy="0.0 0.0 0.0"/>
+        <parent link="stick1_link"/>
+        <child link="stick2_link"/>
+        <axis xyz="0.0 1 0.0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="100"/>
+    </joint>
+    <link name="stick2_link">
+        <inertial>
+            <mass value="1.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.2"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.4"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.4"/>
+            </geometry>
+            <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+
+
+    <joint name="stick3_joint" type="revolute">
+        <origin xyz="0.0 -0.1 0.3" rpy="0.0 0.0 0.0"/>
+        <parent link="stick2_link"/>
+        <child link="stick3_link"/>
+        <axis xyz="0.0 1 0.0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="100"/>
+    </joint>
+    <link name="stick3_link">
+        <inertial>
+            <mass value="1.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.2"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.4"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0 0.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.4"/>
+            </geometry>
+            <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link> -->
+
+    <!-- MOBILE ROBOT -->    
+    <joint name="front_wheel_right_joint" type="revolute">
+        <origin xyz="0.2 0.25 0.0" rpy="1.57 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="front_wheel_right_link"/>
+        <axis xyz="0.0 0.0 1.0"/>
+        <limit lower="-0.5" upper="0.5" effort="10.0" velocity="5.0"/>
+    </joint>
+    <link name="front_wheel_right_link">
+        <inertial>
+            <mass value="2.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+
+    <joint name="front_wheel_left_joint" type="revolute">
+        <origin xyz="0.2 -0.25 0.0" rpy="1.57 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="front_wheel_left_link"/>
+        <axis xyz="0.0 0.0 1.0"/>
+        <limit lower="-0.5" upper="0.5" effort="10.0" velocity="5.0"/>
+    </joint>
+    <link name="front_wheel_left_link">
+        <inertial>
+            <mass value="2.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+
+    <joint name="rear_wheel_right_joint" type="continuous">
+        <origin xyz="-0.2 0.25 0.0" rpy="1.57 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="rear_wheel_right_link"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+    <link name="rear_wheel_right_link">
+        <inertial>
+            <mass value="2.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+
+    <joint name="rear_wheel_left_joint" type="continuous">
+        <origin xyz="-0.2 -0.25 0.0" rpy="1.57 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="rear_wheel_left_link"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+    <link name="rear_wheel_left_link">
+        <inertial>
+            <mass value="2.0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+
+   <joint name="camera_joint" type="fixed">
+        <origin xyz="-0.35 0.0 0.01" rpy="0.0 0.0 3.14"/>
+        <parent link="base_link"/>
+        <child link="camera"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+    <link name="camera">
+        <inertial>
+            <mass value="0.5"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.05"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.1 0.1 0.05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    
+    <joint name="lidar_joint" type="fixed">
+        <origin xyz="-0.285 0.0 0.075" rpy="0.0 0.0 1.57"/>
+        <parent link="base_link"/>
+        <child link="lidar"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+    <link name="lidar">
+        <inertial>
+            <mass value="0.5"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+        </collision>
+    </link>
+    
+
+
+
+
+
+
+    <!-- GAZEBO -->
+    <plugin name="gazebo_ros_ackermann_drive" filename="libackermann_drive_plugin.so">
+        <wheelSeparation>0.5</wheelSeparation>
+        <wheelBase>0.3</wheelBase>
+        <frontLeftSteeringJoint>front_wheel_left_joint</frontLeftSteeringJoint>
+        <frontRightSteeringJoint>front_wheel_right_joint</frontRightSteeringJoint>
+
+        <rearLeftWheelJoint>rear_wheel_left_joint</rearLeftWheelJoint>
+        <rearRightWheelJoint>rear_wheel_right_joint</rearRightWheelJoint>
+        <topic>/cmd_vel</topic>
+    </plugin>
+</robot>
