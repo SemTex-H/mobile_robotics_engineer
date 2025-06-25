@@ -1,21 +1,3 @@
-#!/usr/bin/env python3
-#
-# Copyright 2019 ROBOTIS CO., LTD.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-# Authors: Joep Tool
-
 import os
 
 from ament_index_python.packages import get_package_share_directory
@@ -29,9 +11,9 @@ def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    x_pose = LaunchConfiguration('x_pose', default='-8.980152')
-    y_pose = LaunchConfiguration('y_pose', default='7.135622')
+    use_sim_time = LaunchConfiguration('use_sim_time' , default='True')
+    x_pose = LaunchConfiguration('x_pose', default='-4.0')
+    y_pose = LaunchConfiguration('y_pose', default='-5.4')
 
     world = os.path.join(
         get_package_share_directory('robot_sensing'),
@@ -72,17 +54,15 @@ def generate_launch_description():
     maze_solver = Node(
         package = 'robot_sensing',
         name = 'maze_solver',
-        executable ='mazeSolving',
+        executable = 'maze_solving',
 
     )
 
     ld = LaunchDescription()
 
-    # Add the commands to the launch description
     ld.add_action(gzserver_cmd)
     ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
     ld.add_action(maze_solver)
-
     return ld
