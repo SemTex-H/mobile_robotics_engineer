@@ -138,4 +138,36 @@
             <contact_coefficient mu="1" kp="1e+13" kd="1.0"/>
         </collision>
     </link>
+
+    <transmission name="stick1_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="stick1_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="stick1_motor">
+            <mechanicalReduction>1.0</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <transmission name="stick2_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="stick2_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="stick2_motor">
+            <mechanicalReduction>1.0</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    </transmission>
+    <transmission name="stick3_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="stick3_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="stick3_motor">
+            <mechanicalReduction>1.0</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
 </robot>

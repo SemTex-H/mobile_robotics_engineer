@@ -1,13 +1,5 @@
 # Module 5 Assignment: Energy-Efficient Navigation and Robotic Arm Control (ROS 2)
 
-## Overview
-
-This assignment involves two main tasks:
-
-1. **Optimize Goal Selection and Path Planning** for the TurtleBot3 robot to reduce energy consumption.
-2. **Add a Position Controller to a Robotic Arm URDF** to allow accurate multi-joint motion via `ros2_control`.
-
----
 
 ## Task 2: Optimize Goal Selection and Path Planning
 
@@ -18,16 +10,12 @@ A ROS 2 node was developed to select a navigation goal for TurtleBot3 based on *
 ### Key Features
 
 - Selects optimal goal by evaluating distance (as a proxy for energy).
-- Uses smoothed trajectories (e.g., B-spline or cubic spline).
 - Publishes to `/cmd_vel` to move the robot.
 - Logs distance and estimated energy for comparison.
 
 ### Files Created
 
-- `goal_selector_node.cpp`: ROS 2 node to compute shortest goal.
-- `path_planner.cpp`: Plans a spline-smoothed path to goal.
-- `energy_logger.py`: Logs estimated energy usage based on path length and velocity profile.
-
+- `goal_linear.cpp`: ROS 2 node to compute goal.
 ---
 
 ## Task 3: Add a Position Controller to Robotic Arm URDF
@@ -45,10 +33,10 @@ The robotic arm URDF was extended with a `ros2_control` configuration and a `Joi
 
 ### Files Created
 
-- `robot_arm.urdf.xacro`: Updated URDF with joints, limits, and control config.
+- `robot_arm.urdf`: Updated URDF with joints, limits, and control config.
 - `position_controllers.yaml`: Controller configuration file.
-- `arm_commander.py`: Publishes `JointTrajectory` messages to move arm.
-- `spawn_controllers.launch.py`: Launches controllers using `controller_manager`.
+- `arm_commander.cpp`: Publishes `JointTrajectory` messages to move arm.
+- `position_controllers.launch.py`: Launches controllers using `controller_manager`.
 
 ---
 
@@ -56,5 +44,14 @@ The robotic arm URDF was extended with a `ros2_control` configuration and a `Joi
 
 ### TurtleBot3 Path Planner
 
+
 ```bash
-ros2 launch turtlebot3_navigation goal_selection.launch.py
+export TURTLEBOT3_MODEL=waffle
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+```
+
+```bash
+colcon build
+source install/setup.bash
+ros2 run module_5_assignment goal_linear
+```
